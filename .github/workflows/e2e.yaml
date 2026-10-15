@@ -2,6 +2,9 @@ name: E2E tests
 on:
   workflow_dispatch:
   workflow_call:
+    secrets:
+      access-token:
+        required: true
 jobs:
   e2e-tests:
     runs-on: ubuntu-latest
@@ -10,6 +13,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ntandresen/gh-actions-course-example-e2e
+          ref: main
+          token: ${{ secrets.access-token || secrets.GITHUB_TOKEN }}
       - name: Setup node
         uses: actions/setup-node@v4
         with:
