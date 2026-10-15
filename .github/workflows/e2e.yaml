@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          repository: ntandresen/gh-actions-course-example-e2e
       - name: Setup node
         uses: actions/setup-node@v4
         with:
